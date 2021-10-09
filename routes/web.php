@@ -23,5 +23,5 @@ Route::get('/contact',  [HomePageController::class, 'contact_us']);
 Route::get('/faq',  [HomePageController::class, 'faq']);
 Route::get('/steps_to_register',  [HomePageController::class, 'steps_to_register']);
 Route::get('/application_form',  [HomePageController::class, 'application_form']);
-Route::get('/news',  [HomePageController::class, 'news']);
-Route::get('/gallary',  [HomePageController::class, 'gallary']);
+// Route::get('/news',  [HomePageController::class, 'news']);
+Route::get('/gallery',  [HomePageController::class, 'gallery']);
