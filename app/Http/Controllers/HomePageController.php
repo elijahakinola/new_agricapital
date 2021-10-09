@@ -40,4 +40,7 @@ class HomePageController extends Controller
     public function gallery() {
         return view ('gallery');
     }
+    public function frontend() {
+        return view ('frontend');
+    }
 }

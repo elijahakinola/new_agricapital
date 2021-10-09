@@ -1,132 +1,1055 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.frontend')
 
-        <title>Laravel</title>
+@section('page-content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}}
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
+<div class="content-wrapper">
+    <header class="wrapper bg-soft-primary">
+      <nav class="navbar navbar-expand-lg classic transparent position-absolute navbar-dark">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100">
+            <a href="index.html">
+              <img class="logo-dark" src="assets/img/logo-purple.png" srcset="./assets/img/logo-purple@2x.png 2x" alt="" />
+              <img class="logo-light" src="assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" />
+            </a>
+          </div>
+          <div class="navbar-collapse offcanvas-nav">
+            <div class="offcanvas-header d-lg-none d-xl-none">
+              <a href="index.html"><img src="assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" /></a>
+              <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close" aria-label="Close"></button>
             </div>
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="#!">Demos</a>
+                <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                  <li class="mega-menu-content">
+                    <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-4 gy-lg-2 list-unstyled">
+                      <li class="col"><a class="dropdown-item" href="demo1.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi1.jpg" srcset="./assets/img/demos/mi1@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo I</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo2.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi2.jpg" srcset="./assets/img/demos/mi2@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo II</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo3.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi3.jpg" srcset="./assets/img/demos/mi3@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo III</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo4.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi4.jpg" srcset="./assets/img/demos/mi4@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo IV</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo5.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi5.jpg" srcset="./assets/img/demos/mi5@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo V</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo6.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi6.jpg" srcset="./assets/img/demos/mi6@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo VI</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo7.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi7.jpg" srcset="./assets/img/demos/mi7@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo VII</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo8.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi8.jpg" srcset="./assets/img/demos/mi8@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo VIII</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo9.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi9.jpg" srcset="./assets/img/demos/mi9@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo IX</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo10.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi10.jpg" srcset="./assets/img/demos/mi10@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo X</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo11.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi11.jpg" srcset="./assets/img/demos/mi11@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XI</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo12.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi12.jpg" srcset="./assets/img/demos/mi12@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XII</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo13.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi13.jpg" srcset="./assets/img/demos/mi13@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XIII</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo14.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi14.jpg" srcset="./assets/img/demos/mi14@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XIV</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo15.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi15.jpg" srcset="./assets/img/demos/mi15@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XV</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo16.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi16.jpg" srcset="./assets/img/demos/mi16@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XVI</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo17.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi17.jpg" srcset="./assets/img/demos/mi17@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XVII</span>
+                        </a></li>
+                      <li class="col"><a class="dropdown-item" href="demo18.html">
+                          <figure class="rounded lift d-none d-lg-block"><img src="assets/img/demos/mi18.jpg" srcset="./assets/img/demos/mi18@2x.jpg 2x" alt=""></figure>
+                          <span class="d-lg-none">Demo XVIII</span>
+                        </a></li>
+                    </ul>
+                    <!--/.row -->
+                  </li>
+                  <!--/.mega-menu-content-->
+                </ul>
+                <!--/.dropdown-menu -->
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#!">Pages</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Services</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><a class="dropdown-item" href="services.html">Services I</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="services2.html">Services II</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">About</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><a class="dropdown-item" href="about.html">About I</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="about2.html">About II</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Contact</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><a class="dropdown-item" href="contact.html">Contact I</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="contact2.html">Contact II</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="contact3.html">Contact III</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="onepage.html">One Page</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#!">Projects</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="dropdown-item" href="projects.html">Projects I</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="projects2.html">Projects II</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="projects3.html">Projects III</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="projects4.html">Projects IV</a></li>
+                  <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Single Projects</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><a class="dropdown-item" href="single-project.html">Single Project I</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="single-project2.html">Single Project II</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="single-project3.html">Single Project III</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#!">Blog</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="dropdown-item" href="blog.html">Blog without Sidebar</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="blog2.html">Blog with Sidebar</a></li>
+                  <li class="nav-item"><a class="dropdown-item" href="blog3.html">Blog with Left Sidebar</a></li>
+                  <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Blog Posts</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><a class="dropdown-item" href="blog-post.html">Post without Sidebar</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="blog-post2.html">Post with Sidebar</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="blog-post3.html">Post with Left Sidebar</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#!">Blocks</a>
+                <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                  <li class="mega-menu-content">
+                    <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/about.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block1.svg" alt=""></div>
+                          <span>About</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/blog.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block2.svg" alt=""></div>
+                          <span>Blog</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/call-to-action.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block3.svg" alt=""></div>
+                          <span>Call to Action</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/clients.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block4.svg" alt=""></div>
+                          <span>Clients</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/contact.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block5.svg" alt=""></div>
+                          <span>Contact</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/facts.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block6.svg" alt=""></div>
+                          <span>Facts</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/faq.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block7.svg" alt=""></div>
+                          <span>FAQ</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/features.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block8.svg" alt=""></div>
+                          <span>Features</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/footer.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block9.svg" alt=""></div>
+                          <span>Footer</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/hero.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block10.svg" alt=""></div>
+                          <span>Hero</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/navbar.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block11.svg" alt=""></div>
+                          <span>Navbar</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/portfolio.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block12.svg" alt=""></div>
+                          <span>Portfolio</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/pricing.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block13.svg" alt=""></div>
+                          <span>Pricing</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/process.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block14.svg" alt=""></div>
+                          <span>Process</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/team.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block15.svg" alt=""></div>
+                          <span>Team</span>
+                        </a>
+                      </li>
+                      <li class="col"><a class="dropdown-item" href="docs/blocks/testimonials.html">
+                          <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0" src="assets/img/demos/block16.svg" alt=""></div>
+                          <span>Testimonials</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <!--/.row -->
+                  </li>
+                  <!--/.mega-menu-content-->
+                </ul>
+                <!--/.dropdown-menu -->
+              </li>
+              <li class="nav-item"><a class="nav-link" href="docs/index.html">Documentation</a>
+                <ul class="dropdown-menu mega-menu">
+                  <li class="mega-menu-content">
+                    <div class="row gx-0 gx-lg-3">
+                      <div class="col-lg-4">
+                        <h6 class="dropdown-header">Usage</h6>
+                        <ul class="list-unstyled cc-2 pb-lg-1">
+                          <li><a class="dropdown-item" href="docs/index.html">Get Started</a></li>
+                          <li><a class="dropdown-item" href="docs/forms.html">Forms</a></li>
+                          <li><a class="dropdown-item" href="docs/faq.html">FAQ</a></li>
+                          <li><a class="dropdown-item" href="docs/changelog.html">Changelog</a></li>
+                          <li><a class="dropdown-item" href="docs/credits.html">Credits</a></li>
+                        </ul>
+                        <h6 class="dropdown-header mt-lg-6">Styleguide</h6>
+                        <ul class="list-unstyled cc-2">
+                          <li><a class="dropdown-item" href="docs/styleguide/colors.html">Colors</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/fonts.html">Fonts</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/duotone-icons.html">Duotone Icons</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/unicons.html">Unicons</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/illustrations.html">Illustrations</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/media.html">Media</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/abstract.html">Abstract Images</a></li>
+                          <li><a class="dropdown-item" href="docs/styleguide/misc.html">Misc</a></li>
+                        </ul>
+                      </div>
+                      <!--/column -->
+                      <div class="col-lg-8">
+                        <h6 class="dropdown-header">Elements</h6>
+                        <ul class="list-unstyled cc-3">
+                          <li><a class="dropdown-item" href="docs/elements/accordion.html">Accordion</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/alerts.html">Alerts</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/animations.html">Animations</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/avatars.html">Avatars</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/background.html">Background</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/badges.html">Badges</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/breadcrumb.html">Breadcrumb</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/buttons.html">Buttons</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/carousel.html">Carousel</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/dividers.html">Dividers</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/form-elements.html">Form Elements</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/hover.html">Hover</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/image-mask.html">Image Mask</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/lightbox.html">Lightbox</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/lists.html">Lists</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/player.html">Media Player</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/modal.html">Modal</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/progressbar.html">Progressbar</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/shadows.html">Shadows</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/shapes.html">Shapes</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/tables.html">Tables</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/tabs.html">Tabs</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/text-highlight.html">Text Highlight</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/tooltips-popovers.html">Tooltips & Popovers</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/typed-text.html">Typed Text</a></li>
+                          <li><a class="dropdown-item" href="docs/elements/typography.html">Typography</a></li>
+                        </ul>
+                      </div>
+                      <!--/column -->
+                    </div>
+                    <!--/.row -->
+                  </li>
+                  <!--/.mega-menu-content-->
+                </ul>
+                <!--/.dropdown-menu -->
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other ms-lg-4">
+            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+              <li class="nav-item d-none d-md-block">
+                <a href="#" class="btn btn-sm btn-white rounded-pill">Free Trial</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <div class="navbar-hamburger"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
         </div>
-    </body>
-</html>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header>
+    <!-- /header -->
+    <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-400 bg-content text-white" data-image-src="assets/img/photos/bg4.jpg">
+      <div class="container pt-18 pb-16" style="z-index: 5; position:relative">
+        <div class="row gx-0 gy-12 align-items-center">
+          <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-6 content text-center text-lg-start" data-cues="slideInDown" data-group="page-title" data-delay="600">
+            <h1 class="display-2 mb-5 text-white">Crafting project specific solutions with expertise.</h1>
+            <p class="lead fs-lg lh-sm mb-7 pe-xl-10">We’re a creative company that focuses on establishing long-term relationships with customers.</p>
+            <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
+              <span><a href="#" class="btn btn-lg btn-white rounded-pill me-2">Explore Now</a></span>
+              <span><a href="#" class="btn btn-lg btn-outline-white rounded-pill">Contact Us</a></span>
+            </div>
+          </div>
+          <!--/column -->
+          <div class="col-lg-5 offset-lg-1">
+            <div class="basic-slider owl-carousel dots-over shadow-lg" data-nav="true" data-margin="5">
+              <div class="item"><img src="assets/img/photos/about21.jpg" srcset="./assets/img/photos/about21@2x.jpg 2x" class="rounded" alt="" /></div>
+              <div class="item light-gallery-wrapper"><a href="https://vimeo.com/374265101" class="btn btn-circle btn-white btn-play ripple mx-auto mb-5 lightbox position-absolute" style="top:50%; left: 50%; transform: translate(-50%,-50%); z-index:3;"><i class="icn-caret-right"></i></a><img src="assets/img/photos/about22.jpg" srcset="./assets/img/photos/about22@2x.jpg 2x" class="rounded" alt="" /></div>
+              <div class="item"><img src="assets/img/photos/about23.jpg" srcset="./assets/img/photos/about23@2x.jpg 2x" class="rounded" alt="" /></div>
+            </div>
+            <!-- /.basic-slider -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+      <div class="container py-14 py-md-17">
+        <div class="row text-center">
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">What We Do?</h2>
+            <h3 class="display-4 mb-10 px-xl-10">The service we offer is specifically designed to meet your needs.</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="position-relative mb-14 mb-md-17">
+          <div class="shape rounded-circle bg-soft-primary rellax w-16 h-16" data-rellax-speed="1" style="bottom: -0.5rem; right: -2.5rem; z-index: 0;"></div>
+          <div class="shape bg-dot primary rellax w-16 h-17" data-rellax-speed="1" style="top: -0.5rem; left: -2.5rem; z-index: 0;"></div>
+          <div class="row gx-md-5 gy-5 text-center">
+            <div class="col-md-6 col-xl-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-phone-volume"></i> </div>
+                  <h4>24/7 Support</h4>
+                  <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.</p>
+                  <a href="#" class="more hover link-primary">Learn More</a>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.card -->
+            </div>
+            <!--/column -->
+            <div class="col-md-6 col-xl-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-shield-exclamation"></i> </div>
+                  <h4>Secure Payments</h4>
+                  <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.</p>
+                  <a href="#" class="more hover link-primary">Learn More</a>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.card -->
+            </div>
+            <!--/column -->
+            <div class="col-md-6 col-xl-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-laptop-cloud"></i> </div>
+                  <h4>Daily Updates</h4>
+                  <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.</p>
+                  <a href="#" class="more hover link-primary">Learn More</a>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.card -->
+            </div>
+            <!--/column -->
+            <div class="col-md-6 col-xl-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-chart-line"></i> </div>
+                  <h4>Market Research</h4>
+                  <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.</p>
+                  <a href="#" class="more hover link-primary">Learn More</a>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.card -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        <!-- /.position-relative -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center mb-14 mb-md-17">
+          <div class="col-lg-7">
+            <figure><img class="w-auto" src="assets/img/concept/concept11.png" srcset="./assets/img/concept/concept11@2x.png 2x" alt="" /></figure>
+          </div>
+          <!--/column -->
+          <div class="col-lg-5">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">Why Choose Us?</h2>
+            <h3 class="display-4 mb-7">We bring solutions to make life easier for our clients.</h3>
+            <div class="accordion accordion-wrapper" id="accordionExample">
+              <div class="card plain accordion-item">
+                <div class="card-header" id="headingOne">
+                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Professional Design </button>
+                </div>
+                <!--/.card-header -->
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.accordion-collapse -->
+              </div>
+              <!--/.accordion-item -->
+              <div class="card plain accordion-item">
+                <div class="card-header" id="headingTwo">
+                  <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Top-Notch Support </button>
+                </div>
+                <!--/.card-header -->
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.accordion-collapse -->
+              </div>
+              <!--/.accordion-item -->
+              <div class="card plain accordion-item">
+                <div class="card-header" id="headingThree">
+                  <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Header and Slider Options </button>
+                </div>
+                <!--/.card-header -->
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.accordion-collapse -->
+              </div>
+              <!--/.accordion-item -->
+            </div>
+            <!--/.accordion -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center mb-md-15">
+          <div class="col-lg-7 order-lg-2">
+            <figure><img class="w-auto" src="assets/img/concept/concept17.png" srcset="./assets/img/concept/concept17@2x.png 2x" alt="" /></figure>
+          </div>
+          <!--/column -->
+          <div class="col-lg-5">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">Our Solutions</h2>
+            <h3 class="display-4 mb-5">We make your spending stress-free for you to have the perfect control.</h3>
+            <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus.</p>
+            <div class="row gy-3">
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>Aenean quam ornare. Curabitur blandit.</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare.</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta euismod malesuada mollis.</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Vivamus sagittis lacus vel augue rutrum.</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-gray">
+      <div class="container py-14 pt-md-0 pb-md-16">
+        <div class="row mt-md-n50p mb-14 mb-md-7">
+          <div class="col-xl-10 mx-auto">
+            <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400" data-image-src="assets/img/photos/bg2.jpg">
+              <div class="card-body p-9 p-xl-11">
+                <div class="row align-items-center counter-wrapper gy-8 text-center text-white">
+                  <div class="col-6 col-lg-3">
+                    <h3 class="counter counter-lg text-white">7518</h3>
+                    <p>Completed Projects</p>
+                  </div>
+                  <!--/column -->
+                  <div class="col-6 col-lg-3">
+                    <h3 class="counter counter-lg text-white">3472</h3>
+                    <p>Happy Customers</p>
+                  </div>
+                  <!--/column -->
+                  <div class="col-6 col-lg-3">
+                    <h3 class="counter counter-lg text-white">2184</h3>
+                    <p>Expert Employees</p>
+                  </div>
+                  <!--/column -->
+                  <div class="col-6 col-lg-3">
+                    <h3 class="counter counter-lg text-white">4523</h3>
+                    <p>Awards Won</p>
+                  </div>
+                  <!--/column -->
+                </div>
+                <!--/.row -->
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row text-center">
+          <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">Case Studies</h2>
+            <h3 class="display-4 mb-6">Check out some of our awesome projects with creative ideas and great design.</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="position-relative">
+          <div class="shape bg-dot primary rellax w-17 h-20" data-rellax-speed="1" style="top: 0; left: -1.7rem;"></div>
+          <div class="carousel owl-carousel gap-small blog grid-view" data-margin="0" data-dots="true" data-autoplay="false" data-autoplay-timeout="5000" data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "2"}, "1200":{"items": "3"}}'>
+            <div class="item">
+              <div class="item-inner">
+                <article>
+                  <div class="card">
+                    <figure class="card-img-top overlay overlay1 hover-scale"><a href="#"> <img src="assets/img/photos/b4.jpg" alt="" /></a>
+                      <figcaption>
+                        <h5 class="from-top mb-0">Read More</h5>
+                      </figcaption>
+                    </figure>
+                    <div class="card-body">
+                      <div class="post-header">
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="blog-post.html">Ligula tristique quis risus</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-content">
+                        <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.</p>
+                      </div>
+                      <!-- /.post-content -->
+                    </div>
+                    <!--/.card-body -->
+                    <div class="card-footer">
+                      <ul class="post-meta d-flex mb-0">
+                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr 2021</span></li>
+                        <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Coding</a></li>
+                      </ul>
+                      <!-- /.post-meta -->
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+                  <!-- /.card -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!-- /.item-inner -->
+            </div>
+            <!-- /.item -->
+            <div class="item">
+              <div class="item-inner">
+                <article>
+                  <div class="card">
+                    <figure class="card-img-top overlay overlay1 hover-scale"><a href="#"> <img src="assets/img/photos/b5.jpg" alt="" /></a>
+                      <figcaption>
+                        <h5 class="from-top mb-0">Read More</h5>
+                      </figcaption>
+                    </figure>
+                    <div class="card-body">
+                      <div class="post-header">
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="blog-post.html">Nullam id dolor elit id nibh</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-content">
+                        <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.</p>
+                      </div>
+                      <!-- /.post-content -->
+                    </div>
+                    <!--/.card-body -->
+                    <div class="card-footer">
+                      <ul class="post-meta d-flex mb-0">
+                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar 2021</span></li>
+                        <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Workspace</a></li>
+                      </ul>
+                      <!-- /.post-meta -->
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+                  <!-- /.card -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!-- /.item-inner -->
+            </div>
+            <!-- /.item -->
+            <div class="item">
+              <div class="item-inner">
+                <article>
+                  <div class="card">
+                    <figure class="card-img-top overlay overlay1 hover-scale"><a href="#"> <img src="assets/img/photos/b6.jpg" alt="" /></a>
+                      <figcaption>
+                        <h5 class="from-top mb-0">Read More</h5>
+                      </figcaption>
+                    </figure>
+                    <div class="card-body">
+                      <div class="post-header">
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="blog-post.html">Ultricies fusce porta elit</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-content">
+                        <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.</p>
+                      </div>
+                      <!-- /.post-content -->
+                    </div>
+                    <!--/.card-body -->
+                    <div class="card-footer">
+                      <ul class="post-meta d-flex mb-0">
+                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb 2021</span></li>
+                        <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Meeting</a></li>
+                      </ul>
+                      <!-- /.post-meta -->
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+                  <!-- /.card -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!-- /.item-inner -->
+            </div>
+            <!-- /.item -->
+            <div class="item">
+              <div class="item-inner">
+                <article>
+                  <div class="card">
+                    <figure class="card-img-top overlay overlay1 hover-scale"><a href="#"> <img src="assets/img/photos/b7.jpg" alt="" /></a>
+                      <figcaption>
+                        <h5 class="from-top mb-0">Read More</h5>
+                      </figcaption>
+                    </figure>
+                    <div class="card-body">
+                      <div class="post-header">
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="blog-post.html">Morbi leo risus porta eget</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-content">
+                        <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras imperdiet nun eu dolor.</p>
+                      </div>
+                      <!-- /.post-content -->
+                    </div>
+                    <!--/.card-body -->
+                    <div class="card-footer">
+                      <ul class="post-meta d-flex mb-0">
+                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan 2021</span></li>
+                        <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Business Tips</a></li>
+                      </ul>
+                      <!-- /.post-meta -->
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+                  <!-- /.card -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!-- /.item-inner -->
+            </div>
+            <!-- /.item -->
+          </div>
+          <!-- /.owl-carousel -->
+        </div>
+        <!-- /.position-relative -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+      <div class="container py-14 py-md-17">
+        <div class="row gy-10 gy-sm-13 gx-lg-3 align-items-center mb-14 mb-md-18">
+          <div class="col-md-8 col-lg-6 position-relative light-gallery-wrapper">
+            <a href="https://vimeo.com/374265101" class="btn btn-circle btn-primary btn-play ripple mx-auto mb-5 lightbox position-absolute" style="top:50%; left: 50%; transform: translate(-50%,-50%); z-index:3;"><i class="icn-caret-right"></i></a>
+            <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0" style="bottom: -1.8rem; right: -1.5rem; width: 85%; height: 90%; "></div>
+            <figure class="rounded"><img src="assets/img/photos/about12.jpg" srcset="./assets/img/photos/about12@2x.jpg 2x" alt=""></figure>
+          </div>
+          <!--/column -->
+          <div class="col-lg-5 offset-lg-1">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">Who Are We?</h2>
+            <h3 class="display-4 mb-6">Company that believes in the power of creative strategy.</h3>
+            <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+            <div class="row gy-3 gx-xl-8">
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit tempus.</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec elit.</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis euismod.</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet euismod.</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="row mb-3">
+          <div class="col-md-10 col-lg-12 col-xl-10 col-xxl-9 mx-auto text-center">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">Our Team</h2>
+            <h3 class="display-4 mb-7 px-lg-19 px-xl-18">Think unique and be innovative. Make a difference with Sandbox.</h3>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="row grid-view gx-md-8 gx-xl-10 gy-8 gy-lg-0 mb-md-20">
+          <div class="col-md-6 col-lg-3">
+            <div class="position-relative">
+              <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+              <div class="card">
+                <figure class="card-img-top"><img class="img-fluid" src="assets/img/avatars/t1.jpg" srcset="./assets/img/avatars/t1@2x.jpg 2x" alt="" /></figure>
+                <div class="card-body px-6 py-5">
+                  <h4 class="mb-1">Coriss Ambady</h4>
+                  <p class="mb-0">Financial Analyst</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /div -->
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3">
+            <div class="position-relative">
+              <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+              <div class="card">
+                <figure class="card-img-top"><img class="img-fluid" src="assets/img/avatars/t2.jpg" srcset="./assets/img/avatars/t2@2x.jpg 2x" alt="" /></figure>
+                <div class="card-body px-6 py-5">
+                  <h4 class="mb-1">Cory Zamora</h4>
+                  <p class="mb-0">Marketing Specialist</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /div -->
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3">
+            <div class="position-relative">
+              <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+              <div class="card">
+                <figure class="card-img-top"><img class="img-fluid" src="assets/img/avatars/t3.jpg" srcset="./assets/img/avatars/t3@2x.jpg 2x" alt="" /></figure>
+                <div class="card-body px-6 py-5">
+                  <h4 class="mb-1">Nikolas Brooten</h4>
+                  <p class="mb-0">Sales Manager</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /div -->
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3">
+            <div class="position-relative">
+              <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+              <div class="card">
+                <figure class="card-img-top"><img class="img-fluid" src="assets/img/avatars/t4.jpg" srcset="./assets/img/avatars/t4@2x.jpg 2x" alt="" /></figure>
+                <div class="card-body px-6 py-5">
+                  <h4 class="mb-1">Jackie Sanders</h4>
+                  <p class="mb-0">Investment Planner</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /div -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-gray">
+      <div class="container py-14 pt-md-0 pb-md-17">
+        <div class="row mt-md-n50p text-white text-center">
+          <div class="col-xl-10 mx-auto mb-14 mb-lg-n6">
+            <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400" data-image-src="assets/img/photos/bg2.jpg">
+              <div class="card-body p-9 p-xl-12">
+                <div class="row gx-0">
+                  <div class="col-xxl-9 mx-auto">
+                    <div class="basic-slider owl-carousel dots-dark gap-small mb-0" data-margin="30">
+                      <div class="item">
+                        <span class="ratings five mb-3"></span>
+                        <blockquote class="border-0 fs-lg mb-2">
+                          <p>“Vivamus sagittis lacus augue laoreet rutrum faucibus auctor vestibulum ligula porta felis, euismod semper cras justo odio consectetur.”</p>
+                          <div class="blockquote-details justify-content-center text-center">
+                            <div class="info ps-0">
+                              <h5 class="mb-1 text-white">Coriss Ambady</h5>
+                              <p class="mb-0">Financial Analyst</p>
+                            </div>
+                          </div>
+                        </blockquote>
+                      </div>
+                      <!-- /.item -->
+                      <div class="item">
+                        <span class="ratings five mb-3"></span>
+                        <blockquote class="border-0 fs-lg mb-2">
+                          <p>“Vivamus sagittis lacus augue laoreet rutrum faucibus auctor vestibulum ligula porta felis, euismod semper cras justo odio consectetur.”</p>
+                          <div class="blockquote-details justify-content-center text-center">
+                            <div class="info ps-0">
+                              <h5 class="mb-1 text-white">Cory Zamora</h5>
+                              <p class="mb-0">Marketing Specialist</p>
+                            </div>
+                          </div>
+                        </blockquote>
+                      </div>
+                      <!-- /.item -->
+                      <div class="item">
+                        <span class="ratings five mb-3"></span>
+                        <blockquote class="border-0 fs-lg mb-2">
+                          <p>“Vivamus sagittis lacus augue laoreet rutrum faucibus auctor vestibulum ligula porta felis, euismod semper cras justo odio consectetur.”</p>
+                          <div class="blockquote-details justify-content-center text-center">
+                            <div class="info ps-0">
+                              <h5 class="mb-1 text-white">Nikolas Brooten</h5>
+                              <p class="mb-0">Sales Manager</p>
+                            </div>
+                          </div>
+                        </blockquote>
+                      </div>
+                      <!-- /.item -->
+                    </div>
+                    <!-- /.owl-carousel -->
+                  </div>
+                  <!-- /column -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row text-center">
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h2 class="fs-15 text-uppercase text-primary mb-3">Our Pricing</h2>
+            <h3 class="display-4 mb-10 px-xl-10">We offer great prices, premium products and quality service for your business.</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-xl-11 mx-auto">
+            <div class="pricing-wrapper position-relative mb-10 mb-md-14">
+              <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1" style="top: 2rem; right: -2.4rem;"></div>
+              <div class="shape rounded-circle bg-line primary rellax w-18 h-18 d-none d-lg-block" data-rellax-speed="1" style="bottom: 0.5rem; left: -2.5rem;"></div>
+              <div class="pricing-switcher-wrapper switcher">
+                <p class="mb-0 pe-3">Monthly</p>
+                <div class="pricing-switchers">
+                  <div class="pricing-switcher pricing-switcher-active"></div>
+                  <div class="pricing-switcher"></div>
+                  <div class="switcher-button bg-primary"></div>
+                </div>
+                <p class="mb-0 ps-3">Yearly</p>
+              </div>
+              <div class="row gy-6 mt-3 mt-md-5">
+                <div class="col-md-6 col-lg-4">
+                  <div class="pricing card">
+                    <div class="card-body">
+                      <div class="prices text-dark">
+                        <div class="price price-show"><span class="price-currency">$</span><span class="price-value">9</span> <span class="price-duration">month</span></div>
+                        <div class="price price-hide price-hidden"><span class="price-currency">$</span><span class="price-value">99</span> <span class="price-duration">year</span></div>
+                      </div>
+                      <!--/.prices -->
+                      <h4 class="card-title mt-2">Basic Plan</h4>
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
+                        <li><i class="uil uil-check"></i><span><strong>1</strong> Project </span></li>
+                        <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span></li>
+                        <li><i class="uil uil-check"></i><span><strong>100MB</strong> Storage </span></li>
+                        <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong> </span></li>
+                        <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                      </ul>
+                      <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-lg-4 popular">
+                  <div class="pricing card">
+                    <div class="card-body">
+                      <div class="prices text-dark">
+                        <div class="price price-show"><span class="price-currency">$</span><span class="price-value">19</span> <span class="price-duration">month</span></div>
+                        <div class="price price-hide price-hidden"><span class="price-currency">$</span><span class="price-value">199</span> <span class="price-duration">year</span></div>
+                      </div>
+                      <!--/.prices -->
+                      <h4 class="card-title mt-2">Premium Plan</h4>
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
+                        <li><i class="uil uil-check"></i><span><strong>5</strong> Projects </span></li>
+                        <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span></li>
+                        <li><i class="uil uil-check"></i><span><strong>200MB</strong> Storage </span></li>
+                        <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span></li>
+                        <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                      </ul>
+                      <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+                <!--/column -->
+                <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-0">
+                  <div class="pricing card">
+                    <div class="card-body">
+                      <div class="prices text-dark">
+                        <div class="price price-show"><span class="price-currency">$</span><span class="price-value">49</span> <span class="price-duration">month</span></div>
+                        <div class="price price-hide price-hidden"><span class="price-currency">$</span><span class="price-value">499</span> <span class="price-duration">year</span></div>
+                      </div>
+                      <!--/.prices -->
+                      <h4 class="card-title mt-2">Corporate Plan</h4>
+                      <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
+                        <li><i class="uil uil-check"></i><span><strong>20</strong> Projects </span></li>
+                        <li><i class="uil uil-check"></i><span><strong>300K</strong> API Access </span></li>
+                        <li><i class="uil uil-check"></i><span><strong>500MB</strong> Storage </span></li>
+                        <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span></li>
+                        <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                      </ul>
+                      <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                    </div>
+                    <!--/.card-body -->
+                  </div>
+                  <!--/.pricing -->
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+            </div>
+            <!--/.pricing-wrapper -->
+            <div class="row gx-md-8 gx-xl-12 gy-10">
+              <div class="col-lg-6">
+                <div class="d-flex flex-row">
+                  <div>
+                    <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i class="uil uil-comment-exclamation"></i></span>
+                  </div>
+                  <div>
+                    <h4>Can I cancel my subscription?</h4>
+                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- /column -->
+              <div class="col-lg-6">
+                <div class="d-flex flex-row">
+                  <div>
+                    <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i class="uil uil-comment-exclamation"></i></span>
+                  </div>
+                  <div>
+                    <h4>Which payment methods do you accept?</h4>
+                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- /column -->
+              <div class="col-lg-6">
+                <div class="d-flex flex-row">
+                  <div>
+                    <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i class="uil uil-comment-exclamation"></i></span>
+                  </div>
+                  <div>
+                    <h4>How can I manage my Account?</h4>
+                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- /column -->
+              <div class="col-lg-6">
+                <div class="d-flex flex-row">
+                  <div>
+                    <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i class="uil uil-comment-exclamation"></i></span>
+                  </div>
+                  <div>
+                    <h4>Is my credit card information secure?</h4>
+                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- /column -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+  </div>
+@endsection
