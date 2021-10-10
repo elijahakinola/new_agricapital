@@ -2,7 +2,7 @@
 
 <!-- Start Breadcrumb -->
 @section('banner')
-    @includeIf('layouts.breadcrumb')
+    @includeIf('layouts.breadcrumb', ['title' => 'Gallery', 'subtitle' => 'Gallery'])
 @endsection
 <!-- End Breadcrumb -->
 

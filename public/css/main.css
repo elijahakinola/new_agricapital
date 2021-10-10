@@ -56,6 +56,28 @@
 /* ===============================================
     General
 ------------------------*/
+/* steps */
+.dark-gray-bg {
+    background: #eaeff3;
+    padding: 40px;
+}
+.padding-40 {
+    padding: 40px;
+}
+.gray-bg {
+    background: rgb(247, 247, 247);
+    padding: 40px;
+}
+.about-block p {
+    line-height: 2;
+}
+.member_say {
+    font-size: 14px;
+}
+.pb-30 {
+    padding-bottom: 30px;
+}
+/* steps end */
 
 /** Variables **/
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 

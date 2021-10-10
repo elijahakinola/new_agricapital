@@ -2,12 +2,12 @@
 
 <!-- Start Breadcrumb -->
 @section('banner')
-    @includeIf('layouts.breadcrumb')
+    @includeIf('layouts.breadcrumb', ['title' => 'Contact Us', 'subtitle' => 'Contact Us'])
 @endsection
 <!-- End Breadcrumb -->
 
 @section('page-content')
- <!--site-main start-->
+<!--site-main start-->
  <div class="site-main">
 
 <!-- conatct-section -->

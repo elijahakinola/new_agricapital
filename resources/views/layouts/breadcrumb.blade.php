@@ -6,13 +6,13 @@
             <div class="col-lg-12">
                 <div class="ttm-page-title-row-inner">
                     <div class="page-title-heading">
-                        <h2 class="title">about us</h2>
+                        <h2 class="title">{{ $title }}</h2>
                     </div>
                     <div class="breadcrumb-wrapper">
                         <span>
-                            <a title="Homepage" href="index.html">Home</a>
+                            <a title="Homepage" href="/">Home</a>
                         </span>
-                        <span>about us 1</span>
+                        <span>{{ $subtitle }}</span>
                     </div>
                 </div>
             </div>
