@@ -21,10 +21,10 @@
                 <div class="section-title title-style-center_text">
                     <div class="title-header">
                         <h3>OUR SERVICES</h3>
-                        <h2 class="title">The Devoted Aqua Services</h2>
+                        <h2 class="title">Our Services</h2>
                     </div>
                     <div class="title-desc">
-                        <p>If it involves aquaculture, our team of aquaculture consultants can help to all kind of Aqua farming projects!</p>
+                        <p>How We Are Useful To You</p>
                     </div>
                 </div><!-- section title end -->
             </div>

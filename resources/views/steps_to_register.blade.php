@@ -8,130 +8,113 @@
 
 @section('page-content')
 
-<!-- Application Process section -->
-
-<div class="padding pt-xs-40">
+<!--padding_top_zero-section-->
+<section class="ttm-row padding_top_zero-section ttm-bgcolor-grey clearfix">
     <div class="container">
-        <div class="row ">
-            <div class="col-md-12 col-lg-12">
-                <div class="heading-box pb-30">
-                    <h2><span>Our</span> Application Process</h2>
-                    <span class="b-line l-left"></span>
-                </div>
-            </div>
-            </div>
-        <div class="row mt-60">
-            <div class="col-md-6 col-lg-6">
-                <div class="about-block gray-bg   padding-40 clearfix">
-                    <div class="client-avtar">
-                        <img src="assets/images/process/user_1.png" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="text-box">
-                        <div class="text-content">
-                            <p>
-                                </p><div class="impotent_point">
-                                    <ul>
-                                        <li>
-                                            <i class="ion-chevron-right"></i> Fill the application form.
-                                        </li>
-                                        <li>
-                                            <i class="ion-chevron-right"></i> Attend our training sessions
-                                        </li>
-                                        <li>
-                                            <i class="ion-chevron-right"></i> Available crops for cultivation will be provided.
-                                        </li>
-
-                                    </ul>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="padding_top90 res-991-padding_top40 mt_5 mb_5">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <!-- featured-icon-box -->
+                            <div class="featured-icon-box icon-align-top-content style5">
+                                <div class="featured-icon">
+                                    <div class="ttm-num"><span class="number ttm-textcolor-darkgrey">STEP ONE</span></div>
                                 </div>
-                            <p></p>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h3>REGISTRATION</h3>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <i class="ion-chevron-right"></i> Fill the application form.
+                                            </li>
+                                            <li>
+                                                <i class="ion-chevron-right"></i> Attend our training sessions
+                                            </li>
+                                            <li>
+                                                <i class="ion-chevron-right"></i> Available crops for cultivation will be provided.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!-- featured-icon-box end-->
                         </div>
-                        <div class="box-title">
-                            <h4 class="member_say">STEP ONE: REGISTRATION</h4>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <!-- featured-icon-box -->
+                            <div class="featured-icon-box icon-align-top-content style5">
+                                <div class="featured-icon">
+                                    <div class="ttm-num"><span class="number ttm-textcolor-darkgrey">STEP TWO</span></div>
+                                </div>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h3>ACCOUNT OPENING</h3>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <p>
+                                        This process will be completed by or support 
+                                        team with every communicated detials provided by the 
+                                        farmer.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!-- featured-icon-box end-->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <!-- featured-icon-box -->
+                            <div class="featured-icon-box icon-align-top-content style5">
+                                <div class="featured-icon">
+                                    <div class="ttm-num"><span class="number ttm-textcolor-darkgrey">STEP THREE</span></div>
+                                </div>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h3>SITE VISITATION</h3>
+                                    </div>
+                                    <div class="featured-desc">
+                                    <p>This process is conducted to gain an impression of 
+                                        the state of the farmland for a proposed transaction with the farmers.</p>
+                                    </div>
+                                </div>
+                            </div><!-- featured-icon-box end-->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <!-- featured-icon-box -->
+                            <div class="featured-icon-box icon-align-top-content style5">
+                                <div class="featured-icon">
+                                    <div class="ttm-num"><span class="number ttm-textcolor-darkgrey">STEP FOUR</span></div>
+                                </div>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h3>FARM INPUT</h3>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <p>AgriCapital will provide farmers with available quality seeds and various organic and inorganic treatments.</p>
+                                    </div>
+                                </div>
+                            </div><!-- featured-icon-box end-->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <!-- featured-icon-box -->
+                            <div class="featured-icon-box icon-align-top-content style5">
+                                <div class="featured-icon">
+                                    <div class="ttm-num"><span class="number ttm-textcolor-darkgrey">STEP FIVE</span></div>
+                                </div>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h3>ENLISTMENT PROCESS / CONFIRMATION</h3>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <p>Process of becoming our partner is completed once all service requirements accessed by AgriCapital team are met.</p>
+                                    </div>
+                                </div>
+                            </div><!-- featured-icon-box end-->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="about-block dark-gray-bg  padding-40 clearfix">
-                    <div class="client-avtar left-pos">
-                        <img src="assets/images/process/user_2.png" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="text-box">
-                        <div class="text-content">
-                            <p>
-                                <br>
-                                This process will be completed by or support<br>
-                                team with every communicated detials provided <br>by the 
-                                farmer.
-                            </p>
-                        </div>
-                        <div class="box-title">
-                            <h4 class="member_say">STEP TWO: ACCOUNT OPENING</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-80">
-            <div class="col-md-6 col-lg-6">
-                <div class="about-block dark-gray-bg   padding-40 clearfix">
-                    <div class="client-avtar">
-                        <img src="assets/images/process/user_3.png" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="text-box">
-                        <div class="text-content">
-                            <p>
-                                This process is conducted to gain an impression of 
-                                the state of the farmland for a proposed transaction with the farmers.
-                            </p>
-                        </div>
-                        <div class="box-title">
-                            <h4 class="member_say">STEP THREE: SITE VISITATION</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="about-block gray-bg  padding-40 clearfix">
-                    <div class="client-avtar left-pos">
-                        <img src="assets/images/process/user_4.png" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="text-box">
-                        <div class="text-content">
-                            <p>
-                                AgriCapital will provide farmers with available quality seeds and various organic and inorganic treatments.
-                            </p>
-                        </div>
-                        <div class="box-title">
-                            <h4 class="member_say">STEP FOUR: FARM INPUT</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-80">
-            <div class="col-md-6 col-lg-6">
-                <div class="about-block gray-bg   padding-40 clearfix">
-                    <div class="client-avtar">
-                        <img src="assets/images/process/user_5.png" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="text-box">
-                        <div class="text-content">
-                            <p>
-                                Process of becoming our partner is completed once all service requirements accessed by AgriCapital team are met.
-                            </p>
-                        </div>
-                        <div class="box-title">
-                            <h4 class="member_say">STEP FIVE:
-                                ENLISTMENT PROCESS / CONFIRMATION</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div><!-- row end -->
     </div>
-</div>
-<!-- Application Process section end -->
-
-
+</section>
+<!--padding_top_zero-section end-->
 @endsection

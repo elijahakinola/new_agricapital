@@ -7,11 +7,10 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="top_bar_contact_item">
-                    <div class="top_bar_icon">
+                    <!-- <div class="top_bar_icon">
                         <i class="fa fa-info-circle"></i>
-                    </div>
-                    <span>Using its extensive fish farming experience and knowledge, Fleuren & Nooijen is now a market leader helping. </span>  
-                    <a href="#">Learn More <i class="fa fa-long-arrow-right"></i></a>
+                    </div> -->
+                    <span>Welcome To AgriCapital </span>  
                 </div>
             </div>
         </div>

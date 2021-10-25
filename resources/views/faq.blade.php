@@ -2,7 +2,7 @@
 
 <!-- Start Breadcrumb -->
 @section('banner')
-    @includeIf('layouts.breadcrumb')
+@includeIf('layouts.breadcrumb', ['title' => 'FAQ', 'subtitle' => 'FAQ'])
 @endsection
 <!-- End Breadcrumb -->
 
@@ -20,9 +20,9 @@
                            <div class="section-title title-style-center_text">
                                <div class="title-header">
                                    <h3>WE ARE HERE!</h3>
-                                   <h2 class="title">Do you have any Questions?</h2>
+                                   <h2 class="title">Frequently Asked Questions</h2>
                                </div>
-                               <div class="title-desc"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry’s standard dummy.</p></div>
+                               <!-- <div class="title-desc"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry’s standard dummy.</p></div> -->
                            </div><!-- section-title end -->
                        </div>
                    </div>
@@ -37,37 +37,44 @@
                            <div class="accordion margin_top15 res-991-margin_top40">
                                <!-- toggle -->
                                <div class="toggle ttm-toggle_style_classic ttm-control-right-true ttm-toggle-title-bgcolor-grey style2">
-                                   <div class="toggle-title"><a href="#">Why i should choose your company?</a></div>
+                                   <div class="toggle-title"><a href="#">How Can I Register?</a></div>
                                    <div class="toggle-content">
-                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                       <p>You do that by obtaining a form from us and registration is free.</p>
                                    </div>
                                </div><!-- toggle end -->
                                <!-- toggle -->
                                <div class="toggle ttm-toggle_style_classic ttm-control-right-true ttm-toggle-title-bgcolor-grey style2">
-                                   <div class="toggle-title"><a href="#" class="active">What you about say your Business planning?</a></div>
+                                   <div class="toggle-title"><a href="#" class="active">Why Are You Going For Spices?</a></div>
                                    <div class="toggle-content show">
-                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                       <p>We plant what our off-taker request for.</p>
                                    </div>
                                </div><!-- toggle end -->
                                <!-- toggle -->
                                <div class="toggle ttm-toggle_style_classic ttm-control-right-true ttm-toggle-title-bgcolor-grey style2">
-                                   <div class="toggle-title"><a href="#">What types of systems do you support?</a></div>
+                                   <div class="toggle-title"><a href="#">Who Is Buying The Crops?</a></div>
                                    <div class="toggle-content">
-                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                       <p>Sano Foods, Agro-Park and Nardus</p>
                                    </div>
                                </div><!-- toggle end -->
                                <!-- toggle -->
                                <div class="toggle ttm-toggle_style_classic ttm-control-right-true ttm-toggle-title-bgcolor-grey style2">
-                                   <div class="toggle-title"><a href="#">What does having Managed your services provider?</a></div>
+                                   <div class="toggle-title"><a href="#">What Crops Are You Planting/Growing?</a></div>
                                    <div class="toggle-content">
-                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                       <p>Turmeric, Lemongrass, Thyme, Orange-Freshed Sweetpotato(OFSP) and Basil.</p>
                                    </div>
                                </div><!-- toggle end -->
                                <!-- toggle -->
                                <div class="toggle ttm-toggle_style_classic ttm-control-right-true ttm-toggle-title-bgcolor-grey style2">
-                                   <div class="toggle-title"><a href="#">What you about say your Business planning?</a></div>
+                                   <div class="toggle-title"><a href="#">Are You Owned By Government?</a></div>
                                    <div class="toggle-content">
-                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                       <p>No, AgriCapital Venture Limited is a private sector.</p>
+                                   </div>
+                               </div><!-- toggle end -->
+                               <!-- toggle -->
+                               <div class="toggle ttm-toggle_style_classic ttm-control-right-true ttm-toggle-title-bgcolor-grey style2">
+                                   <div class="toggle-title"><a href="#">How Can You Assist Us In Terms Of Clearing And Ploughing?</a></div>
+                                   <div class="toggle-content">
+                                       <p>We do that by give seedlings herbicide and fertilizer but we don't give out capitals to our farmers.</p>
                                    </div>
                                </div><!-- toggle end -->
                           </div>
@@ -83,8 +90,8 @@
                    <div class="row">
                        <div class="col-lg-12">
                            <div class="text-center padding_bottom15">
-                               <h4 class="mt_10">We Offer Financial Strategies & Superior Services</h4>
-                               <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor margin_top15" href="contact-us.html">Get a Quote</a>
+                               <h4 class="mt_10">Connecting Resources To Opportunities</h4>
+                               <!-- <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor margin_top15" href="contact-us.html">Get a Quote</a> -->
                            </div>
                        </div>
                    </div>

@@ -24,6 +24,13 @@
 <link rel="stylesheet" type="text/css" href="css/megamenu.css"/>
 <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
 
+<script>
+    window.setTimeout(function() {
+        $(".alert-timeout").fadeTo(500, 0).slideUp(1000, function(){
+            $(this).remove(); 
+        });
+    }, 15000);
+</script>
 </head>
 
 

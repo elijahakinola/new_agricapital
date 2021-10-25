@@ -22,10 +22,9 @@ return [
     'telephone3' => '(+234) 7032658042',
     'email' => 'info@agricapital.ng',
     'short_description' => 'AgriCapital Ventures Limited is committed to connecting global resources to opportunities outside its locality and confinement.
-
     We are a trusted partner to farmers while also helping agriprenuers in the entire agricultural value chain with needed solutions and advisory support.', 
     'opening_hours'=> 'Mon-Fri: 9:00 - 6:00',
-    'address' => 'Head Office: 18, Udi Street, Osborne Foreshore, Ikoyi Lagos, Nigeria.',
+    'address1' => 'Head Office: 18, Udi Street, Osborne Foreshore, Ikoyi Lagos, Nigeria.',
     'address2' => "Office 103, The Blades Enterprise Centre St Johns Road Sheffield, S2 4SW England.",
     'address3' => "NO 3, Moremi Street, Off Aare Avenue, New Bodija, Ibadan, Oyo State, Nigeria.",
 

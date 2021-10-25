@@ -21,14 +21,14 @@
                     <div class="section-title">
                         <div class="title-header">
                             <h3>ABOUT US</h3>
-                            <h2 class="title">The Best Place For Aqua Farming</h2>
+                            <h2 class="title">Welcome To AgriCapital</h2>
                         </div>
                         <div class="title-desc">
-                            <p>Aqovo include activity concerned with cultivating, processing, preserving, storing, transporting, marketing or selling fish or fish products. Input factors in other industrial processes.</p>
-                            <p>Food and Agriculture Organization as including recreational, subsistence and commercial fishing, the harvesting, processing, and marketing sectors & other seafood products</p>
+                            <p>AgriCapital Ventures Limited is committed to connecting global resources to opportunities outside its locality and confinement.</p>
+                            <p>We are a trusted partner to farmers while also helping agriprenuers in the entire agricultural value chain with needed solutions and advisory support.</p>
                         </div>
                     </div><!-- section title end -->
-                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-border ttm-btn-color-dark  margin_top15" href="contact-us.html">contact us</a>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-border ttm-btn-color-dark  margin_top15" href="/contact">contact us</a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
@@ -37,32 +37,37 @@
                         <ul class="tabs text-center clearfix">
                             <li class="tab"><a href="#">Mission</a></li>
                             <li class="tab active"><a href="#">Vision</a></li>
-                            <li class="tab"><a href="#">Awards</a></li>
+                            <li class="tab"><a href="#">Core Values</a></li>
                         </ul>
                         <div class="content-tab">
                             <!-- content-inner -->
                             <div class="content-inner">
                                 <div class="padding_bottom15">
-                                    <p class="clearfix"><img class="img-fluid alignleft" src="images/tab-img-01.jpg" alt="image" width="200" height="133">Solutions and services that optimize the production and enables a sustainable, cost-efficient industry. We are in the significant opportunities.</p>
+                                    <p class="clearfix text-center" style="font-weight: 900;">Our Mission: PITCROFE</p>
                                 </div>
-                                <p class="clearfix">Accelerate growth of fisheries industry output through use of high technology, increase productivity as well as targeting the import.</p>
-                                <p class="clearfix">Towards sustainable growth of the output of fisheries industry through increase in productivity.</p>
+                                <p class="clearfix"><b>P</b> - is providing high yield inputs</p>
+                                <p class="clearfix"><b>I</b> - is improving farmers welfare</p>
+                                <p class="clearfix"><b>T</b> - is training on GAP for improved yield</p>
+                                <p class="clearfix"><b>CRO</b> - is crop Diversification</p>
+                                <p class="clearfix"><b>F</b> - is financing the entire Agricultural value chain</p>
+                                <p class="clearfix"><b>E</b> - is efficient and Effective use of Agricultural resources for global economic development</p>
                             </div><!-- content-inner end-->
                             <!-- content-inner -->
                             <div class="content-inner active">                                        
                                 <div class="padding_bottom15">
-                                    <p class="clearfix"><img class="img-fluid alignleft" src="images/tab-img-02.jpg" alt="image" width="200" height="133">Solutions and services that optimize the production and enables a sustainable, cost-efficient industry. We are in the significant opportunities.</p>
+                                    <p class="clearfix">Connecting Agricultural resources to opportunities in the entire Agricultural value chain.</p>
                                 </div>
-                                <p class="clearfix">Accelerate growth of fisheries industry output through use of high technology, increase productivity as well as targeting the import.</p>
-                                <p class="clearfix">Towards sustainable growth of the output of fisheries industry through increase in productivity.</p>
                             </div><!-- content-inner end-->
                             <!-- content-inner -->
                             <div class="content-inner">
                                 <div class="padding_bottom15">
-                                    <p class="clearfix"><img class="img-fluid alignleft" src="images/tab-img-03.jpg" alt="image" width="200" height="133">Solutions and services that optimize the production and enables a sustainable, cost-efficient industry. We are in the significant opportunities.</p>
+                                    <p class="clearfix text-center" style="font-weight: 900;">Our Core Values: 3RIS</p>
                                 </div>
-                                <p class="clearfix">Accelerate growth of fisheries industry output through use of high technology, increase productivity as well as targeting the import.</p>
-                                <p class="clearfix">Towards sustainable growth of the output of fisheries industry through increase in productivity.</p>
+                                <p class="clearfix">Resilient</p>
+                                <p class="clearfix">Respect</p>
+                                <p class="clearfix">Responsibility</p>
+                                <p class="clearfix">Integrity</p>
+                                <p class="clearfix">Servant Leadership</p>
                             </div><!-- content-inner end-->
                         </div>
                     </div>
@@ -109,10 +114,12 @@
                             <div class="section-title">
                                 <div class="title-header">
                                     <h3>ABOUT US</h3>
-                                    <h2 class="title">Always Ready To Give The Best Services</h2>
+                                    <h2 class="title">AgriCapital The Company You Can Trust</h2>
                                 </div>
                                 <div class="title-desc">
-                                    <p>Our aquaculture services is divided into six Mini Missions, for better focus and ease of implementation. The major services is proposed implemented under six main services</p>
+                                    <p>AgriCapital Ventures Limited is committed to connecting global resources to opportunities outside its locality and confinement and also We are committed to fulfilling our mission of farmers earning wages with 
+                                        access to decent houses, medcare and education for their kids. We started 3 years ago with maize production after which partnership extended to other farmers in different location across the South West State of Nigeria with the production of spices staple foods. Our mission is to provide high yield inputs and caring for farmer's welfare and providing agricultural support for them. Our drive is connecting resources to opportunities. 
+                                        We are a trusted partner to farmers in production process as well as aggregator between the farmers and the off-takers. We are located at No. 3, Moremi Street, Off Aare Avenue, New Bodija, Ibadan, Oyo State.</p>
                                 </div>
                             </div><!-- section title end -->
                             <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-border ttm-btn-color-dark  margin_top15" href="about-us-2.html">read more</a>
