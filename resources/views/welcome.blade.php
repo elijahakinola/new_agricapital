@@ -2,7 +2,7 @@
 
 <!-- Start Banner -->
 @section('banner')
-    @includeIf('layouts.banner')
+@includeIf('layouts.breadcrumb', ['title' => 'WE CAN HELP YOU GROW AND EXPAND', 'subtitle' => 'AgriCapital Ventures Limited is Committed to Connecting Global Resources To Opportunities Outsideits Localities and Confinement. We are a Trusted Partner to Farmers While Also Helping Agripreneurs in The Entire Agricultural Value Chain with Needed Solutions and Advisory Support.'])
 @endsection
 <!-- End Banner -->
 
@@ -151,12 +151,12 @@
                     <!-- section title -->
                     <div class="section-title">
                         <div class="title-header">
-                            <h3>ABOUT US</h3>
-                            <h2 class="title">Complete Destination For Aqua farming</h2>
+                            <h3>Welcome To</h3>
+                            <h2 class="title">Agri Capital</h2>
                         </div>
                         <div class="title-desc">
-                            <p>Aqovo is a United States based aquaculture consulting company that provides aqua project management services worldwide.</p>
-                            <p>We are in the significant opportunities for water and wastewater treatment contracts within our Aqua division, as well as products and systems for land-based farming, industry and fisheries.</p>
+                            <p>AgriCapital Ventures Limited Is Committed To Connecting Global Resources To Opportunities Outside Its Locality And Confinement.</p>
+                            <p>We Are A Trusted Partner To Farmers While Also Helping Agriprenuers In The Entire Agricultural Value Chain With Needed Solutions And Advisory Support.</p>
                         </div>
                     </div><!-- section title end -->
                     <div class="row">
@@ -194,11 +194,11 @@
                 <!-- section-title -->
                 <div class="section-title title-style-center_text">
                     <div class="title-header">
-                        <h3>our best services!</h3>
-                        <h2 class="title">Fish Farming Starts With Us</h2>
+                        <!-- <h3>our best services!</h3> -->
+                        <h2 class="title">Our Projects</h2>
                     </div>
                     <div class="title-desc">
-                        <p>The world’s foremost engineering company for the design of offshore fish farms since,1997! It involves raising fish commercially in tanks.</p>
+                        <p>ONGOING PROJECTS IN OGUN STATE (OUT-GROWERS SCHEME) Enlisting Farmers For Crops Diversification. Few out of the crops we currently engaging on</p>
                     </div>
                 </div><!-- section-title end -->
             </div>
@@ -214,7 +214,7 @@
                     </div><!-- featured-thumbnail end-->
                     <div class="featured-content">
                         <div class="featured-title">
-                            <h3><a href="prawn-feeds.html">Prawn Feeds</a></h3>
+                            <h3><a href="prawn-feeds.html">Maize</a></h3>
                         </div>
                         <div class="featured-desc">
                             <p>The farming aspect of the aqua farming implies an intervention enhance production.</p>
@@ -234,7 +234,7 @@
                     </div><!-- featured-thumbnail end-->
                     <div class="featured-content">
                         <div class="featured-title">
-                            <h3><a href="flowerhorn-fish.html">Flowerhorn Fish</a></h3>
+                            <h3><a href="flowerhorn-fish.html">Turmeric</a></h3>
                         </div>
                         <div class="featured-desc">
                             <p>It is considered one of the most profitable in export value in the fish farming industry and always helpful.</p>
@@ -254,7 +254,7 @@
                     </div><!-- featured-thumbnail end-->
                     <div class="featured-content">
                         <div class="featured-title">
-                            <h3><a href="hatchery-supply.html">Hatchery Supply</a></h3>
+                            <h3><a href="hatchery-supply.html">Lemon Grass</a></h3>
                         </div>
                         <div class="featured-desc">
                             <p>Hatchery includes fish graders, shipping supplies to spawning & handling a many container world wide.</p>
@@ -274,7 +274,7 @@
                     </div><!-- featured-thumbnail end-->
                     <div class="featured-content">
                         <div class="featured-title">
-                            <h3><a href="aquatic-plants.html">Aquatic Plants</a></h3>
+                            <h3><a href="aquatic-plants.html">OFSP</a></h3>
                         </div>
                         <div class="featured-desc">
                             <p>We identify a short-list of productivity, collaboration, project management &  feedback...</p>
@@ -294,7 +294,27 @@
                     </div><!-- featured-thumbnail end-->
                     <div class="featured-content">
                         <div class="featured-title">
-                            <h3><a href="green-care.html">Green Care</a></h3>
+                            <h3><a href="green-care.html">Cassava</a></h3>
+                        </div>
+                        <div class="featured-desc">
+                            <p>The farming aspect of the aqua farming implies an intervention enhance production.</p>
+                        </div>
+                        <div class="bottom-footer">
+                            <a class="ttm-btn ttm-btn-size-md ttm-icon-btn-right ttm-btn-color-dark btn-inline" href="green-care.html">view more<i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <!-- featured-thumbnail -->
+                    <div class="featured-thumbnail">
+                        <a href="green-care.html"><img class="img-fluid" src="images/services/services-05-670x400.jpg" alt="image"></a>
+                    </div><!-- featured-thumbnail end-->
+                    <div class="featured-content">
+                        <div class="featured-title">
+                            <h3><a href="green-care.html">Rice</a></h3>
                         </div>
                         <div class="featured-desc">
                             <p>The farming aspect of the aqua farming implies an intervention enhance production.</p>
